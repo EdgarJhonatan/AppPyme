@@ -1,0 +1,79 @@
+<h1>
+    <small>Registro de Usuario</small> 
+</h1>
+
+<div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column">
+    <div fxFlex="50" fxLayout="column">
+        <form [formGroup]="miFormulario"  (ngSubmit)="agregarUsuario()">
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                    <mat-label>Documento Identidad</mat-label>
+                    <input matInput type="text" formControlName="usuario" autocomplete="off">
+                </mat-form-field>
+        
+                <mat-form-field fxFlex="100" >
+                    <mat-label>Nombres</mat-label>
+                    <input matInput type="text" formControlName="nombre" autocomplete="off" >
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                    <mat-label>Apellido Paterno</mat-label>
+                    <input matInput type="text" formControlName="apellidoPaterno" autocomplete="off">
+                </mat-form-field>
+        
+                <mat-form-field fxFlex="100" >
+                    <mat-label>Apellido Materno</mat-label>
+                    <input matInput type="text" formControlName="apellidoMaterno" autocomplete="off" >
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" formControlName="email" autocomplete="off">
+                </mat-form-field>
+        
+                <mat-form-field fxFlex="100" >
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" autocomplete="off" >
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                    <mat-label>Tipo Usuario</mat-label>
+                    <mat-select formControlName="tipoUsuario">
+                        <mat-option *ngFor="let item of tipoUsuario" [value]="item">
+                          {{item}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+        
+                <mat-form-field fxFlex="100" >
+                    <mat-label>Sucursal</mat-label>
+                    <mat-select formControlName="sucursal">
+                        <mat-option *ngFor="let item of tipoUsuario" [value]="item">
+                          {{item}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout style="margin-top: 10px;">
+                <button mat-raised-button style="margin-right: 20px;" color="warn" routerLink="/protected/mantenimiento/listar-usuario">
+                    <mat-icon>reply_all</mat-icon>
+                    Volver
+                </button>
+                <button type="submit" [disabled]="miFormulario.invalid" mat-raised-button color="primary">
+                    <mat-icon>save</mat-icon>
+                    Registrar
+                </button>
+            </div>
+
+        </form>
+    
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<mat-sidenav-container fullscreen>
+
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="primary">
+            <span>Menú</span>
+            <span class="spacer"></span>
+
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>    
+            </button>
+        </mat-toolbar> 
+        
+        <mat-nav-list>
+            <!-- Dashboard -->
+            <button mat-button (click)="sidenav.toggle()" class="menu"> 
+                <mat-icon mat-list-icon>poll</mat-icon> Dashboard 
+            </button>
+
+            <br>
+
+            <!-- Ventas -->
+            <button mat-button [matMenuTriggerFor]="modVentas" class="menu"> 
+                <mat-icon mat-list-icon>paid</mat-icon> Ventas 
+            </button>
+            
+            <mat-menu #modVentas="matMenu">
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="ventas/registro-cliente" > <mat-icon>add_circle</mat-icon> Registro clientes</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="ventas/registro-venta" > <mat-icon>add_circle</mat-icon> Registro ventas</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="ventas/registro-cobranza" > <mat-icon>add_circle</mat-icon> Registro cobranza</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="ventas/reporte-venta" > <mat-icon>summarize</mat-icon> Reporte ventas</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="ventas/reporte-factura-cobrar" > <mat-icon>summarize</mat-icon> Reporte facturas por cobrar</button>
+            </mat-menu>
+
+            <br>
+
+            <!-- Compras -->
+            <button mat-button [matMenuTriggerFor]="modCompras" class="menu"> 
+                <mat-icon mat-list-icon>paid</mat-icon> Compras 
+            </button>
+             
+            <mat-menu #modCompras="matMenu" >
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="compras/registro-compra" > <mat-icon>add_circle</mat-icon> Registro compras</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="compras/registro-proveedor" > <mat-icon>add_circle</mat-icon> Registro proveedores</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="compras/registro-pago" > <mat-icon>add_circle</mat-icon> Registro pago</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="compras/reporte-compra" > <mat-icon>summarize</mat-icon> Reporte compras</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="compras/reporte-proveedor-pagar" > <mat-icon>summarize</mat-icon> Reporte proveedor por pagar</button>
+            </mat-menu>
+
+            <br>
+
+            <!-- Existencia -->
+            <button mat-button [matMenuTriggerFor]="modExistencia" class="menu"> 
+                <mat-icon mat-list-icon>inventory_2</mat-icon> Existencia 
+            </button>
+             
+            <mat-menu #modExistencia="matMenu" >
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/registro-producto" > <mat-icon>add_circle</mat-icon> Registro productos</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/registro-articulo" > <mat-icon>add_circle</mat-icon> Registro artículo</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/reporte-stock" > <mat-icon>summarize</mat-icon> Reporte stock</button>
+            </mat-menu>
+
+            <br>
+
+            <!-- Mantenimiento -->
+            <button mat-button [matMenuTriggerFor]="modMantenimiento" class="menu"> 
+                <mat-icon mat-list-icon>miscellaneous_services</mat-icon> Mantenimiento 
+            </button>
+             
+            <mat-menu #modMantenimiento="matMenu" >
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="mantenimiento/listar-usuario" > <mat-icon>person_add</mat-icon> Registro usuario</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="mantenimiento/registro-sucursal" > <mat-icon>add_circle</mat-icon> Registro sucursales</button>
+            </mat-menu>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+    
+    <mat-toolbar color="primary">
+        
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>    
+        </button>
+
+        <span>Mi Empresa</span>
+
+        <span class="spacer"></span>
+
+        <button mat-button> 
+            <!-- <span>{{auth.usuario}}</span> -->
+             <span> Edgar Delgadillo </span>     
+             <mat-icon>person_pin</mat-icon>
+        </button>
+        
+
+        <button mat-button routerLink="/" (click)="logaout()">
+           Logout <mat-icon>logout</mat-icon>
+        </button>
+    </mat-toolbar> 
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    
+
+</mat-sidenav-container>

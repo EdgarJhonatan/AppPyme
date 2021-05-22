@@ -1,0 +1,22 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+button.mat-menu-item:hover {
+    background-color: blue;
+    color: #fff !important;
+    width: 250px;
+}
+
+
+button.mat-menu-item:hover > mat-icon {
+    background-color: blue;
+    color: #fff !important;
+}
+
+.menu:hover {
+    background-color: blue;
+    color: #fff !important;
+    width: 180px;
+}
