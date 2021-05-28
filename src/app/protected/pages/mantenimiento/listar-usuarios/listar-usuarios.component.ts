@@ -69,6 +69,16 @@ export class ListarUsuariosComponent implements OnInit {
 
   dataSource!: MatTableDataSource<any>;
 
+  columnas = [
+    { titulo: 'Documento Identidad', name: 'documento' },
+    { titulo: 'Nombres', name: 'nombres' },
+    { titulo: 'Apellido Paterno', name: 'apellidoPaterno' },
+    { titulo: 'Apellido Materno', name: 'apellidoMaterno' },
+    { titulo: 'Email', name: 'email' },
+    { titulo: 'Tipo Usuario', name: 'tipoUsuario' },
+    { titulo: 'Sucursal', name: 'sucursal' },
+  ];
+
   constructor() {}
 
   ngOnInit(): void {

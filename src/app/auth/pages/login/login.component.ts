@@ -12,8 +12,8 @@ export class LoginComponent {
   hide = true;
 
   miFormulario: FormGroup = this.fb.group({
-    usuario: ['46746901', [Validators.required]],
-    password: ['123456', [Validators.required, Validators.minLength(6)]],
+    usuario: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
   constructor(

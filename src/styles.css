@@ -6,9 +6,63 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container {
     margin-left: 100px;
     margin-right: 100px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .example-spacer {
     flex: 1 1 auto;
+}
+
+
+.separar {
+    padding-right: 20px;
+}
+
+
+
+  /*Styles para tables*/
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 600px) {
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+        font-weight: bold;
   }
+
+  .mat-table {
+    width: 305px;
+    border-radius: 10px solid;
+  }
+  
+  .container {
+    margin-left: 30px;
+    margin-right: 100px;
+    margin-top: 30px;
+} 
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row { 
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 10px;
+  }
+
+  .mat-table .mat-row {
+    border-bottom: 10px solid #ddd;
+    display: block;
+  }
+
+
+}

@@ -1,5 +1,5 @@
 <h1>
-    <small>Registro de Usuario</small> 
+    <span>Registro de Usuario</span> 
 </h1>
 
 <div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column">
@@ -7,7 +7,7 @@
         <form [formGroup]="miFormulario"  (ngSubmit)="agregarUsuario()">
 
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
-                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" >
                     <mat-label>Documento Identidad</mat-label>
                     <input matInput type="text" formControlName="usuario" autocomplete="off">
                 </mat-form-field>
@@ -19,7 +19,7 @@
             </div>
 
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
-                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" >
                     <mat-label>Apellido Paterno</mat-label>
                     <input matInput type="text" formControlName="apellidoPaterno" autocomplete="off">
                 </mat-form-field>
@@ -31,19 +31,23 @@
             </div>
 
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
-                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" >
                     <mat-label>Email</mat-label>
                     <input matInput type="text" formControlName="email" autocomplete="off">
                 </mat-form-field>
         
                 <mat-form-field fxFlex="100" >
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" formControlName="password" autocomplete="off" >
+                    <!-- <input matInput type="password" formControlName="password" autocomplete="off" > -->
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
                 </mat-form-field>
             </div>
 
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
-                <mat-form-field fxFlex="100" fxLayout.xs="column" class="separar">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" >
                     <mat-label>Tipo Usuario</mat-label>
                     <mat-select formControlName="tipoUsuario">
                         <mat-option *ngFor="let item of tipoUsuario" [value]="item">
@@ -62,12 +66,13 @@
                 </mat-form-field>
             </div>
 
-            <div fxLayout style="margin-top: 10px;">
-                <button mat-raised-button style="margin-right: 20px;" color="warn" routerLink="/protected/mantenimiento/listar-usuario">
+            <div fxLayout style="margin-top: 10px;" fxLayout.xs="column" fxLayoutGap="20px">
+                <button  mat-raised-button style="margin-right: 20px;" color="warn" routerLink="/protected/mantenimiento/listar-usuario">
                     <mat-icon>reply_all</mat-icon>
-                    Volver
+                    Regresar
                 </button>
-                <button type="submit" [disabled]="miFormulario.invalid" mat-raised-button color="primary">
+            
+                <button  mat-raised-button type="submit" [disabled]="miFormulario.invalid"  color="primary">
                     <mat-icon>save</mat-icon>
                     Registrar
                 </button>

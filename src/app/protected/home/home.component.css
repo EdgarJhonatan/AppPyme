@@ -2,6 +2,9 @@
     flex: 1 1 auto;
 }
 
+.izquierda {
+    padding-right: 70px;
+}
 
 button.mat-menu-item:hover {
     background-color: blue;

@@ -73,30 +73,49 @@
 
         </mat-nav-list>
 
-    </mat-sidenav>
-    
-    <mat-toolbar color="primary">
         
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>    
-        </button>
+        <!-- Móvil -->
+        <div  fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+            <hr>
+            <hr>
+            <button mat-button> 
+                <!-- <span>{{auth.usuario}}</span> -->
+                <span> Edgar Delgadillo </span>     
+                <mat-icon>person_pin</mat-icon>
+            </button>    
+        
+            <button mat-button class="izquierda" routerLink="/" (click)="logaout()">
+                Logout <mat-icon>logout</mat-icon>
+            </button>
+        </div>
+
+
+    </mat-sidenav>
+
+    <mat-toolbar color="primary"  >
+        <div >
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>    
+            </button>
+        </div>
 
         <span>Mi Empresa</span>
 
         <span class="spacer"></span>
 
-        <button mat-button> 
-            <!-- <span>{{auth.usuario}}</span> -->
-             <span> Edgar Delgadillo </span>     
-             <mat-icon>person_pin</mat-icon>
-        </button>
+        <div fxShow="true" fxHide.lt-md="true">
+            <button mat-button> 
+                <!-- <span>{{auth.usuario}}</span> -->
+                <span> Edgar Delgadillo </span>     
+                <mat-icon>person_pin</mat-icon>
+            </button>    
         
-
-        <button mat-button routerLink="/" (click)="logaout()">
-           Logout <mat-icon>logout</mat-icon>
-        </button>
+            <button mat-button routerLink="/" (click)="logaout()">
+                Logout <mat-icon>logout</mat-icon>
+            </button>
+        </div>
     </mat-toolbar> 
-
+    
     <div class="container">
       <router-outlet></router-outlet>
     </div>

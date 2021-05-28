@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ProtectedRoutingModule } from './protected-routing.module';
 
@@ -21,6 +22,7 @@ import { RegistroUsuarioComponent } from './pages/mantenimiento/registro-usuario
 import { RegistroSucursalComponent } from './pages/mantenimiento/registro-sucursal/registro-sucursal.component';
 import { ReporteVentaComponent } from './pages/ventas/reporte-venta/reporte-venta.component';
 import { ListarUsuariosComponent } from './pages/mantenimiento/listar-usuarios/listar-usuarios.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,12 @@ import { ListarUsuariosComponent } from './pages/mantenimiento/listar-usuarios/l
     RegistroSucursalComponent,
     ListarUsuariosComponent,
   ],
-  imports: [CommonModule, ProtectedRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    ProtectedRoutingModule,
+    MaterialModule,
+    FlexLayoutModule,
+    FormsModule,
+  ],
 })
 export class ProtectedModule {}
