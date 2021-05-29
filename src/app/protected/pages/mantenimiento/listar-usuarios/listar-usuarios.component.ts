@@ -19,7 +19,7 @@ export class ListarUsuariosComponent implements OnInit {
       email: 'juan@gmail.com',
       password: 'FGHTYS**!',
       tipoUsuario: 'ADM',
-      sucursal: 'ADM',
+      sucursal: 'Tienda 3',
     },
     {
       documento: '46746902',
@@ -29,7 +29,7 @@ export class ListarUsuariosComponent implements OnInit {
       email: 'lore@gmail.com',
       password: 'FGHTYS**!',
       tipoUsuario: 'USER',
-      sucursal: 'ADM',
+      sucursal: 'Tienda 2',
     },
     {
       documento: '46746903',
@@ -39,7 +39,7 @@ export class ListarUsuariosComponent implements OnInit {
       email: 'rosita@gmail.com',
       password: 'FGHTYS**!',
       tipoUsuario: 'USER',
-      sucursal: 'ADM',
+      sucursal: 'Tienda 1',
     },
     {
       documento: '46746904',
@@ -49,7 +49,7 @@ export class ListarUsuariosComponent implements OnInit {
       email: 'petro@gmail.com',
       password: 'FGHTYS**!',
       tipoUsuario: 'USER',
-      sucursal: 'ADM',
+      sucursal: 'Tienda 4',
     },
   ];
 

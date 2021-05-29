@@ -4,3 +4,11 @@
     padding-left: 0px;
   }
 }
+
+mat-header-cell {
+  color: #fff;
+  background-color: #4056B5;
+  font-weight: bold;
+  font-size: unset;
+  border-bottom: 5px solid #ddd;
+}

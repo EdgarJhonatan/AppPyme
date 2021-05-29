@@ -1,1 +1,51 @@
-<p>registro-producto works!</p>
+<h1>
+    <span>Registro de Producto</span> 
+</h1>
+
+<div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column">
+    <div fxFlex="50" fxLayout="column">
+        <form [formGroup]="miFormulario"  (ngSubmit)="agregarProducto()">
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" >
+                    <mat-label>Código</mat-label>
+                    <input matInput type="text" formControlName="codigo" autocomplete="off">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" >
+                    <mat-label>Descripción</mat-label>
+                    <input matInput type="text" formControlName="descripcion" autocomplete="off">
+                </mat-form-field>
+            </div>
+
+            <!-- Sucursal -->
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100" fxLayout.xs="column" >
+                    <mat-label>Artículo</mat-label>
+                    <mat-select formControlName="articulo">
+                        <mat-option *ngFor="let item of articulo" [value]="item">
+                          {{item}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </div>
+
+
+            <div fxLayout style="margin-top: 10px;" fxLayout.xs="column" fxLayoutGap="20px">
+                <button  mat-raised-button style="margin-right: 20px;" color="warn" routerLink="/protected/existencia/listar-producto">
+                    <mat-icon>reply_all</mat-icon>
+                    Regresar
+                </button>
+            
+                <button  mat-raised-button type="submit" [disabled]="miFormulario.invalid"  color="primary">
+                    <mat-icon>save</mat-icon>
+                    Registrar
+                </button>
+            </div>
+
+        </form>
+    
+    </div>
+</div>

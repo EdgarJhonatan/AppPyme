@@ -54,8 +54,8 @@
             </button>
              
             <mat-menu #modExistencia="matMenu" >
-                <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/registro-producto" > <mat-icon>add_circle</mat-icon> Registro productos</button>
-                <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/registro-articulo" > <mat-icon>add_circle</mat-icon> Registro artículo</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/listar-producto" > <mat-icon>add_circle</mat-icon> Registro productos</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/listar-articulo" > <mat-icon>add_circle</mat-icon> Registro artículo</button>
                 <button (click)="sidenav.toggle()" mat-menu-item routerLink="existencia/reporte-stock" > <mat-icon>summarize</mat-icon> Reporte stock</button>
             </mat-menu>
 
@@ -68,7 +68,7 @@
              
             <mat-menu #modMantenimiento="matMenu" >
                 <button (click)="sidenav.toggle()" mat-menu-item routerLink="mantenimiento/listar-usuario" > <mat-icon>person_add</mat-icon> Registro usuario</button>
-                <button (click)="sidenav.toggle()" mat-menu-item routerLink="mantenimiento/registro-sucursal" > <mat-icon>add_circle</mat-icon> Registro sucursales</button>
+                <button (click)="sidenav.toggle()" mat-menu-item routerLink="mantenimiento/listar-sucursal" > <mat-icon>add_business</mat-icon> Registro sucursales</button>
             </mat-menu>
 
         </mat-nav-list>

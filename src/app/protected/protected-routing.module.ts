@@ -8,9 +8,12 @@ import { RegistroProveedorComponent } from './pages/compras/registro-proveedor/r
 import { ReporteCompraComponent } from './pages/compras/reporte-compra/reporte-compra.component';
 import { ReporteProveedorPagarComponent } from './pages/compras/reporte-proveedor-pagar/reporte-proveedor-pagar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ListarArticuloComponent } from './pages/existencia/listar-articulo/listar-articulo.component';
+import { ListarProductoComponent } from './pages/existencia/listar-producto/listar-producto.component';
 import { RegistroArticuloComponent } from './pages/existencia/registro-articulo/registro-articulo.component';
 import { RegistroProductoComponent } from './pages/existencia/registro-producto/registro-producto.component';
 import { ReporteStockComponent } from './pages/existencia/reporte-stock/reporte-stock.component';
+import { ListarSucursalComponent } from './pages/mantenimiento/listar-sucursal/listar-sucursal.component';
 import { ListarUsuariosComponent } from './pages/mantenimiento/listar-usuarios/listar-usuarios.component';
 import { RegistroSucursalComponent } from './pages/mantenimiento/registro-sucursal/registro-sucursal.component';
 import { RegistroUsuarioComponent } from './pages/mantenimiento/registro-usuario/registro-usuario.component';
@@ -77,8 +80,16 @@ const routes: Routes = [
         component: RegistroProductoComponent,
       },
       {
+        path: 'existencia/listar-producto',
+        component: ListarProductoComponent,
+      },
+      {
         path: 'existencia/registro-articulo',
         component: RegistroArticuloComponent,
+      },
+      {
+        path: 'existencia/listar-articulo',
+        component: ListarArticuloComponent,
       },
       {
         path: 'existencia/reporte-stock',
@@ -92,6 +103,10 @@ const routes: Routes = [
       {
         path: 'mantenimiento/listar-usuario',
         component: ListarUsuariosComponent,
+      },
+      {
+        path: 'mantenimiento/listar-sucursal',
+        component: ListarSucursalComponent,
       },
       {
         path: 'mantenimiento/registro-sucursal',

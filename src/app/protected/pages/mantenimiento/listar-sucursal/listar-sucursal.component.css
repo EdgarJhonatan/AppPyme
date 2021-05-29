@@ -1,0 +1,15 @@
+@media(max-width: 600px) {
+
+    mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type {
+      padding-left: 0px;
+    }
+  }
+
+  mat-header-cell {
+    color: #fff;
+    background-color: #4056B5;
+    font-weight: bold;
+    font-size: unset;
+    border-bottom: 5px solid #ddd;
+  }
+  

@@ -19,6 +19,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+.pointer {
+  cursor: pointer;
+}
 
   /*Styles para tables*/
 

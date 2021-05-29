@@ -23,6 +23,9 @@ import { RegistroSucursalComponent } from './pages/mantenimiento/registro-sucurs
 import { ReporteVentaComponent } from './pages/ventas/reporte-venta/reporte-venta.component';
 import { ListarUsuariosComponent } from './pages/mantenimiento/listar-usuarios/listar-usuarios.component';
 import { FormsModule } from '@angular/forms';
+import { ListarSucursalComponent } from './pages/mantenimiento/listar-sucursal/listar-sucursal.component';
+import { ListarProductoComponent } from './pages/existencia/listar-producto/listar-producto.component';
+import { ListarArticuloComponent } from './pages/existencia/listar-articulo/listar-articulo.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { FormsModule } from '@angular/forms';
     RegistroUsuarioComponent,
     RegistroSucursalComponent,
     ListarUsuariosComponent,
+    ListarSucursalComponent,
+    ListarProductoComponent,
+    ListarArticuloComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,58 @@
+<mat-toolbar fxLayout.xs="column">
+    <span>Artículos</span> 
+    <div class="example-spacer"></div>
+    <button mat-raised-button color="primary" routerLink="/protected/existencia/registro-articulo">
+        <mat-icon>add_circle</mat-icon>
+        Agregar 
+    </button>
+</mat-toolbar>
+
+<div *ngIf="listArticulos.length > 0" style="margin-top: 30px;">
+    <mat-form-field>
+        <mat-label> <mat-icon>search</mat-icon> Buscar artículo</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ej. Insecticida" #input autocomplete="off">
+    </mat-form-field>      
+
+    <div class="mat-elevation-z8" >
+        <mat-table  [dataSource]="dataSource" matSort > 
+            <!-- Codigo Artículo -->
+            <ng-container matColumnDef="codigo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Código Artículo </mat-header-cell>
+                <mat-cell *matCellDef="let element" > 
+                    <span class="mobile-label"> Código Artículo: </span>
+                    {{element.codigo}} 
+                </mat-cell>
+            </ng-container>
+        
+            <!-- Descripcion -->
+            <ng-container matColumnDef="descripcion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </mat-header-cell>
+                <mat-cell *matCellDef="let element"> 
+                    <span class="mobile-label"> Descripción: </span>
+                    {{element.descripcion}} 
+                </mat-cell>
+            </ng-container>
+        
+
+            <!-- Acciones -->
+            <ng-container matColumnDef="acciones">
+                <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+                <mat-cell *matCellDef="let element; let i = index" > 
+                    <span class="mobile-label"> Acciones: </span>
+                    <a class="pointer"  style="color: #1f516f;" matTooltip="Editar sucursal">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a class="pointer" (click)="eliminarArticulo(i)" style="color: #e15639;" matTooltip="Eliminar sucursal">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+</div>
+<h2 *ngIf="listArticulos.length == 0">No hay sucursal para mostrar</h2>
