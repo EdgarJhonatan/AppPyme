@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/protected/interfaces/usuario';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -10,57 +11,17 @@ import { Usuario } from 'src/app/protected/interfaces/usuario';
   styleUrls: ['./listar-usuarios.component.css'],
 })
 export class ListarUsuariosComponent implements OnInit {
-  listUsuarios: Usuario[] = [
-    {
-      documento: '46746901',
-      nombres: 'Juan Pedro',
-      apellidoPaterno: 'Ramos',
-      apellidoMaterno: 'Oliva',
-      email: 'juan@gmail.com',
-      password: 'FGHTYS**!',
-      tipoUsuario: 'ADM',
-      sucursal: 'Tienda 3',
-    },
-    {
-      documento: '46746902',
-      nombres: 'Elias Lorenzo',
-      apellidoPaterno: 'Sanchez',
-      apellidoMaterno: 'Cruz',
-      email: 'lore@gmail.com',
-      password: 'FGHTYS**!',
-      tipoUsuario: 'USER',
-      sucursal: 'Tienda 2',
-    },
-    {
-      documento: '46746903',
-      nombres: 'Rosa Ana',
-      apellidoPaterno: 'Cerro',
-      apellidoMaterno: 'Santos',
-      email: 'rosita@gmail.com',
-      password: 'FGHTYS**!',
-      tipoUsuario: 'USER',
-      sucursal: 'Tienda 1',
-    },
-    {
-      documento: '46746904',
-      nombres: 'Esther Petronila',
-      apellidoPaterno: 'Vargas',
-      apellidoMaterno: 'Oyola',
-      email: 'petro@gmail.com',
-      password: 'FGHTYS**!',
-      tipoUsuario: 'USER',
-      sucursal: 'Tienda 4',
-    },
-  ];
+  listUsuarios: Usuario[] = [];
 
   displayedColumns: string[] = [
-    'documento',
+    'codigoUsuario',
+    'documentoIdentidad',
     'nombres',
     'apellidoPaterno',
     'apellidoMaterno',
     'email',
-    'tipoUsuario',
-    'sucursal',
+    'role',
+    'nombreSucursal',
     'acciones',
   ];
 
@@ -70,25 +31,31 @@ export class ListarUsuariosComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
 
   columnas = [
-    { titulo: 'Documento Identidad', name: 'documento' },
+    { titulo: 'ID', name: 'codigoUsuario' },
+    { titulo: 'Documento Identidad', name: 'documentoIdentidad' },
     { titulo: 'Nombres', name: 'nombres' },
     { titulo: 'Apellido Paterno', name: 'apellidoPaterno' },
     { titulo: 'Apellido Materno', name: 'apellidoMaterno' },
     { titulo: 'Email', name: 'email' },
-    { titulo: 'Tipo Usuario', name: 'tipoUsuario' },
-    { titulo: 'Sucursal', name: 'sucursal' },
+    { titulo: 'Tipo Usuario', name: 'role' },
+    { titulo: 'Sucursal', name: 'nombreSucursal' },
   ];
 
-  constructor() {}
+  constructor(private listar: AuthService) {}
 
   ngOnInit(): void {
-    this.listUsuarios;
-    this.dataSource = new MatTableDataSource(this.listUsuarios);
+    this.listar.listarUsuarios().subscribe((usuario) => {
+      this.listUsuarios = usuario;
+      console.log(' this.listUsuarios', this.listUsuarios);
+      this.dataSource = new MatTableDataSource(this.listUsuarios);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

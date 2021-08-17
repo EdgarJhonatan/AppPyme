@@ -7,7 +7,7 @@
         </button>
     </mat-toolbar>
 
-    <div *ngIf="listUsuarios.length > 0" style="margin-top: 30px;">
+    <div  *ngIf="listUsuarios.length > 0" style="margin-top: 30px;">
         <mat-form-field>
             <mat-label> <mat-icon>search</mat-icon> Buscar usuario</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ej. Juan Perez" #input autocomplete="off">
@@ -15,12 +15,21 @@
 
         <div class="mat-elevation-z8" >
             <mat-table  [dataSource]="dataSource" matSort > 
+                <!-- ID -->
+                <ng-container matColumnDef="codigoUsuario">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let element" > 
+                        <span class="mobile-label"> ID: </span>
+                        {{element.codigoUsuario}} 
+                    </mat-cell>
+                </ng-container>
+
                 <!-- Documento Identidad -->
-                <ng-container matColumnDef="documento">
+                <ng-container matColumnDef="documentoIdentidad">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Documento Identidad </mat-header-cell>
                     <mat-cell *matCellDef="let element" > 
                         <span class="mobile-label"> Documento Identidad: </span>
-                        {{element.documento}} 
+                        {{element.documentoIdentidad}} 
                     </mat-cell>
                 </ng-container>
             
@@ -61,20 +70,20 @@
                 </ng-container>
     
                 <!-- Tipo Usuario -->
-                <ng-container matColumnDef="tipoUsuario">
+                <ng-container matColumnDef="role">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo Usuario </mat-header-cell>
                     <mat-cell *matCellDef="let element"> 
                         <span class="mobile-label"> Tipo Usuario: </span>
-                        {{element.tipoUsuario}} 
+                        {{element.role}} 
                     </mat-cell>
                 </ng-container>
     
                 <!-- Sucursal -->
-                <ng-container matColumnDef="sucursal">
+                <ng-container matColumnDef="nombreSucursal">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Sucursal </mat-header-cell>
                     <mat-cell *matCellDef="let element"> 
                         <span class="mobile-label"> Sucursal: </span>
-                        {{element.sucursal}} 
+                        {{element.nombreSucursal}} 
                     </mat-cell>
                 </ng-container>
 

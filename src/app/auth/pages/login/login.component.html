@@ -3,7 +3,7 @@
       <div class="body">
           <div class="login">
             <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
-            <form *ngIf="!loading" [formGroup]="miFormulario" (ngSubmit)="login()">
+            <form *ngIf="!loading" [formGroup]="miFormulario" (ngSubmit)="logIng()">
               <img src="./assets/img/usuario.png" width="50%">
 
               <h1>Login</h1>

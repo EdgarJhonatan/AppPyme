@@ -1,10 +1,13 @@
 export interface Usuario {
-  documento: string;
+  codRes: string;
+  message: string;
+  codigoUsuario: number;
+  documentoIdentidad: string;
   nombres: string;
-  apellidoPaterno: string;
   apellidoMaterno: string;
+  apellidoPaterno: string;
+  nombreSucursal: string;
+  estado: boolean;
   email: string;
-  password: string;
-  tipoUsuario: string;
-  sucursal: string;
+  role: string;
 }

@@ -12,3 +12,8 @@ mat-header-cell {
   font-size: unset;
   border-bottom: 5px solid #ddd;
 }
+
+.mat-column-email {
+  padding-right: 80px;
+}
+
