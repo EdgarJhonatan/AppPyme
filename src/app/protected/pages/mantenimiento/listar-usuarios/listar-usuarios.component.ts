@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/protected/interfaces/usuario';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { UsuarioService } from 'src/app/protected/services/usuario.service';
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -41,21 +41,22 @@ export class ListarUsuariosComponent implements OnInit {
     { titulo: 'Sucursal', name: 'nombreSucursal' },
   ];
 
-  constructor(private listar: AuthService) {}
+  constructor(private listar: UsuarioService) {}
 
   ngOnInit(): void {
     this.listar.listarUsuarios().subscribe((usuario) => {
       this.listUsuarios = usuario;
-      console.log(' this.listUsuarios', this.listUsuarios);
       this.dataSource = new MatTableDataSource(this.listUsuarios);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
     });
   }
 
   ngAfterViewInit() {
-    //this.dataSource.paginator = this.paginator;
-    //this.dataSource.sort = this.sort;
+    this.listar.listarUsuarios().subscribe((usuario) => {
+      this.listUsuarios = usuario;
+      this.dataSource = new MatTableDataSource(this.listUsuarios);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(event: Event) {

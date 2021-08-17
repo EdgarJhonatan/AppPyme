@@ -1,8 +1,7 @@
 export interface Usuario {
-  usuario: string;
+  codigoUsuario: number;
+  documentoIdentidad: string;
   nombre: string;
-  apellido: string;
-  sexo: string;
 }
 
 export interface loginResponse {

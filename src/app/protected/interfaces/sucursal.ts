@@ -1,6 +1,9 @@
 export interface Sucursal {
-  codigo: string;
-  nombre: string;
-  direccion: string;
-  serie: string;
+  codRes: string;
+  message: string;
+  data: string;
+  codigoSucursal: number;
+  estado: boolean;
+  direccionSucursal: string;
+  nombreSucursal: string;
 }

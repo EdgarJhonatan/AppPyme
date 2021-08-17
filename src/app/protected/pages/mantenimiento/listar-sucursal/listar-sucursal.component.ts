@@ -10,40 +10,9 @@ import { Sucursal } from 'src/app/protected/interfaces/sucursal';
   styleUrls: ['./listar-sucursal.component.css'],
 })
 export class ListarSucursalComponent implements OnInit {
-  listSucursal: Sucursal[] = [
-    {
-      codigo: 'MM001',
-      nombre: 'Tienda 1',
-      direccion: 'Av. Los pinos 480',
-      serie: '001',
-    },
-    {
-      codigo: 'MM002',
-      nombre: 'Tienda 2',
-      direccion: 'Av. Gramdales Bajo 103',
-      serie: '003',
-    },
-    {
-      codigo: 'MM003 ',
-      nombre: 'Tienda 3',
-      direccion: 'Av. Las flores 134',
-      serie: '003',
-    },
-    {
-      codigo: 'MM004',
-      nombre: 'Tienda 4',
-      direccion: 'Av. San Juan 432',
-      serie: '004',
-    },
-  ];
+  listSucursal: Sucursal[] = [];
 
-  displayedColumns: string[] = [
-    'codigo',
-    'nombre',
-    'direccion',
-    'serie',
-    'acciones',
-  ];
+  displayedColumns: string[] = ['codigo', 'nombre', 'direccion', 'acciones'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

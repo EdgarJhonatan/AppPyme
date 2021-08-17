@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 import { Usuario, loginResponse } from '../interfaces/interfaces';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
@@ -35,19 +35,28 @@ export class AuthService {
     );
   }
 
-  listarUsuarios() {
-    const url = `${this.baseUrl}/ms/v1/usuario/listar?codigo&tipoAccion=2`;
+  validarToken() {
+    const url = `${this.baseUrl}/ms/v1/usuario/renew`;
+    const headers = new HttpHeaders().set(
+      'x-token',
+      localStorage.getItem('token') || ''
+    );
 
-    console.log('url: ', url);
-
-    return this.http.get<loginResponse>(url).pipe(
-      tap((resp) => {
+    return this.http.get<loginResponse>(url, { headers }).pipe(
+      map((resp) => {
+        localStorage.setItem('token', resp.token!);
+        this._usuario = {
+          codigoUsuario: resp.codigoUsuario!,
+          documentoIdentidad: resp.documentoIdentidad!,
+          nombre: resp.nombres!,
+        };
         if (resp.codRes == '00') {
-          //localStorage.setItem('token', resp.token!);
+          return true;
+        } else {
+          return false;
         }
       }),
-      map((resp) => resp.data),
-      catchError((err) => of(err.error))
+      catchError((err) => of(false))
     );
   }
 }
